@@ -9,21 +9,21 @@ pipeline {
           steps {
           cleanWs()
           }
-        }
+    }
     stage("Checkout from SCM"){
-      steps {
-      git branch: 'main', credentialsId: 'github', url: 'https://github.com/072Kirti/Shopping-website'
-      }
-    stage("Build Application"){
-      steps {
-        sh "mvn clean package"
-        }
-    stage("Test Application"){
-      steps {
-        sh "mvn test"
+          steps {
+          git branch: 'main', credentialsId: 'github', url: 'https://github.com/072Kirti/Shopping-website'
           }
-        }
-      }
+    }
+    stage("Build Application"){
+          steps {
+          sh "mvn clean package"
+          }
+    )
+    stage("Test Application"){
+          steps {
+          sh "mvn test"
+          }
     }
   }
 }
